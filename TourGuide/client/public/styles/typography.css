@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+    font: 10px/1.5 'PT Sans', sans-serif;
+}
+
+:root {
+    --black: #111111;
+    --gold: #fff;
+    --background: #6C89A7;
+    --whiteText: #e3e3e3;
+    --fasolid: #575656;
+}
+
+@media (min-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 900px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1400px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+body,
+input,
+textarea,
+ul,
+ol {
+    font: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+body {
+    background-image: url(../images/backgound-2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-repeat: no-repeat;
+    background-position: center; */
+} 

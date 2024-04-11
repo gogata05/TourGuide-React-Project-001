@@ -1,0 +1,52 @@
+.site {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer {
+    margin-top: auto;
+}
+
+/* ERROR */
+
+.errorContainer {
+    margin-top: 1em;
+    position: fixed;
+    right: 100px;
+    min-width: 100px;
+    display: block;
+    z-index: 11111;
+    top: 80px;
+    text-align: center;
+    border-radius: 20px;
+    color: var(--whiteText);
+    height: auto;
+    width: 320px;
+    box-shadow: 10px 10px 78px 6px rgba(108,137,167,0.75);
+  }
+  
+  .errorContainer > p {
+    background-color: rgba(215, 47, 47, 0.5);
+    font-size: 20px;
+    padding: 20px;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .errorContainer {
+    -moz-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 2s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
