@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { AuthProvider  } from "./contexts/AuthContext";
 import { TripProvider } from "./contexts/TripContext";
+import { Navigation } from "./components/Navigation";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
         <AuthProvider>
             <TripProvider>
                 <div className="site">
+                    <Navigation />
                     <main className="site-main">
                         <Routes >
                            
