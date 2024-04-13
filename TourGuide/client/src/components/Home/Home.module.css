@@ -1,0 +1,274 @@
+.home {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.hero {
+    background-color: #0056b3; /* Примерен основен цвят */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cta {
+    background-color: #ffcc00; /* Примерен цвят за бутони */
+    color: #0056b3;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px; /* Закръглени ръбове */
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Анимация при ховър */
+}
+
+.cta:hover {
+    background-color: #ffd633; /* Промяна на цвета при ховър */
+}
+
+/* Стилове за слайдера, ако са необходими */
+
+/* Стилове за футъра */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #9cf;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #aadfff; /* Светло син цвят при ховър */
+}
+
+@keyframes fadeInUp{
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-home {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    /* background-image: url(../images/backgound-2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    text-align: center;
+    padding-top: 3em;
+}
+
+.card-container {
+    margin-bottom: 2.5em;
+}
+
+.card-container .container h1 {
+    font-size: 4em;
+    margin-bottom: 0.5em;
+    color:var(--whiteText);
+}
+
+.card-container .container p:nth-child(2) {
+    font-size: 1.2em;
+    color:var(--whiteText);
+}
+
+.card-list {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 5em;
+}
+
+.card span {
+    padding-bottom: 1em;
+
+}
+
+.card-list .card:first-child span .icon1 {
+    color: red;
+    border: 3px solid red;
+}
+
+.card span .icon2 {
+    color: #006600;
+    border: 3px solid #006600;
+}
+
+.card span .icon3 {
+    color: yellow;
+    border: 3px solid yellow;
+}
+
+.card span i {
+    border-radius: 50%;
+    font-size: 2em;
+    padding: 0.5em;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.card h5 {
+    padding: 0.5em 0;
+}
+
+.card p {
+    max-width: 30ch;
+}
+
+
+.card h5,
+.card span i,
+.card p {
+    color:var(--whiteText);}
+
+hr {
+    border: 1px solid var(--whiteText);
+}
+
+/* HOW-WOKR */
+
+.how-work {
+    padding-bottom: 2em;
+    background-color: var(--whiteText);
+}
+
+.how-work .container h2 {
+    margin-top: 2em;
+    padding-top: 1em;
+    color: var(--background) ;
+}
+
+.number-list {
+    display: flex;
+    justify-content: center;
+    gap: 6em;
+    margin-top: 2em;
+    color: #fff;
+}
+
+.number-list .card-number h5 {
+    padding: 0.5em 0;
+}
+
+.card-number h5,
+.card-number p {
+    /* color:var(--whiteText); */
+    color: var(--background);
+}
+
+.card-number span {
+    font-style: normal;
+}
+
+.number-list .card-number p:nth-child(1) {
+    margin: 0 auto;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    color: #fff;
+    background-color: var(--background);
+}
+
+.number-list .card-number p:nth-child(1) span {
+    font-size: 1.5em;
+}
+
+.number-list .card-number p:nth-child(3) {
+    max-width: 30ch;
+}
+
+/* TOP USER LIKED */
+
+.top-liked-users {
+    background-color: rgba(5, 9, 12, 1);
+}
+
+.top-liked-users .container {
+    max-width: 1200px;
+    margin:  0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.user-card {
+    display: flex;
+    flex: 0 0 32%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+    margin: 2em 0;
+}
+
+.user-card-media {
+    max-width: 5em;
+}
+
+.user-card-media img {
+    border-radius: 50%;
+}
+
+.user-card-content h5 {
+    color: var(--whiteText);
+    padding-bottom: 0.5em;
+}
+
+.user-card-content p {
+    max-width: 40ch;
+    color: var(--whiteText);
+}
+
+/* Custom dot styles for Slick slider */
+:global(.slick-dots) {
+    display: flex !important;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+:global(.slick-dots li) {
+    margin: 0 5px;
+}
+
+:global(.slick-dots li button) {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    cursor: pointer;
+    border: 2px solid #fff; 
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+:global(.slick-dots li button:hover),
+:global(.slick-dots li.slick-active button) {
+    background: #fff; 
+    border-color: #fff;
+}
+
+:global(.slick-dots li button:before) {
+    content: normal; 
+}
