@@ -4,7 +4,9 @@ import { AuthProvider  } from "./contexts/AuthContext";
 import { TripProvider } from "./contexts/TripContext";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
+import { Home } from "./components/Home";
 import { CreateAccount } from "./components/CreateAccount";
+import { Login } from "./components/Login";
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
                     <main className="site-main">
                         <Routes >
                             <Route path="/" element={<Home />} />
+                            <Route path="/user/login" element={<Login />} />
                             <Route path="/user/create-account" element={<CreateAccount />} />
                         </Routes>
                     </main>

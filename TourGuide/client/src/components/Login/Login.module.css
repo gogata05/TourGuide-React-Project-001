@@ -1,0 +1,140 @@
+@media (width <= 768px) {
+    .site-login {
+        margin: 15em auto;
+    }
+
+    .site-login .container {
+        width: 350px;
+    }
+}
+
+.site-login .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 500px;
+    margin-top: 1em;
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    background-color: rgba(74, 72, 72, 0.5);
+    border-radius: 0.5em;
+}
+
+.site-login h3 {
+    text-align: center;
+    padding-top: 1em;
+    color: var(--gold);
+}
+
+.form-login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 2em 0;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.email label,
+.password label {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--whiteText);
+}
+
+.email-content,
+.password-content {
+    margin-top: 0.7em;
+    position: relative;
+}
+
+.password input,
+.email input {
+    text-indent: 1.2em;
+    border: none;
+    padding: 0 0.5em;
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.email input:-webkit-autofill,
+.password input:-webkit-autofill {
+    background-color: rgba(74, 72, 72, 0.5);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.password input:focus,
+.email input:focus {
+    border: none;
+    outline: none;
+}
+
+.email input:-webkit-autofill:focus,
+.password input:-webkit-autofill:focus {
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.email-content .envelope,
+.password-content .lock {
+    position: absolute;
+    top: 0.25em;
+    left: 0.25em;
+    color: var(--gold);
+}
+
+.login-btn {
+    margin-top: 0.7em;
+}
+
+.login-btn .login-input {
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.3em 2em;
+    color: var(--gold);
+    cursor: pointer;
+    background-color: var(--black);
+    transform: scale(1);
+    transition: transform 0.5s;
+
+}
+
+.login-btn .login-input:hover {
+    color: var(--background);
+    text-decoration: none;
+    background-color: var(--black);
+    transform: scale(1.1);
+}
+
+.form-login p:last-child {
+    color: var(--gold);
+}
+
+.form-login p:last-child a {
+    text-decoration: none;
+    color: var(--black);
+    padding-left: 0.3em;
+}
+
+.form-login p:last-child a:hover {
+    text-decoration: underline;
+    color: var(--background);
+}
+
+.login-errors {
+    color: red;
+    font-size: 0.7em;
+    margin-top: 0.2em;
+}
