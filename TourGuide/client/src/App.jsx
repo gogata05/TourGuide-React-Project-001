@@ -4,6 +4,7 @@ import { AuthProvider  } from "./contexts/AuthContext";
 import { TripProvider } from "./contexts/TripContext";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
+import { CreateAccount } from "./components/CreateAccount";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
                     <main className="site-main">
                         <Routes >
                             <Route path="/" element={<Home />} />
+                            <Route path="/user/create-account" element={<CreateAccount />} />
                         </Routes>
                     </main>
                     <Footer />

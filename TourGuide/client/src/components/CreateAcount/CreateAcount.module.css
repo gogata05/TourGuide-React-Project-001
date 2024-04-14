@@ -1,0 +1,125 @@
+@media (width <= 768px) {
+    .site-create-account {
+        margin: 15em auto;
+    }
+
+    .site-create-account .container {
+        width: 450px;
+    }
+}
+
+.site-create-account h3 {
+    text-align: center;
+    padding: 1.5em 0;
+    color: var(--gold);
+}
+
+.site-create-account .container {
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    padding: 1em 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5em;
+    border-radius: 0.5em;
+}
+
+.site-create-account form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1em 0 0 0;
+    gap: 1em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.3em;
+    padding: 0 4em;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--whiteText);
+}
+
+.form-group input {
+    width: 100%;
+    text-indent: 0.5em;
+    margin-top: 0.7em;
+    border: none;
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.form-group input:-webkit-autofill {
+    background-color: rgba(74, 72, 72, 0.5);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-group input:focus {
+    border: none;
+    outline: none;
+}
+
+.form-group input:-webkit-autofill:focus {
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.form-group select {
+    font-size: 1em;
+    padding: 0.1em 0;
+}
+
+.create-account-btn {
+    grid-column: span 2;
+    margin: 1.5em 0 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-account-btn input {
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.3em 2.5em;
+    color: var(--gold);
+    cursor: pointer;
+    background-color: var(--black);
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.create-account-btn input:hover {
+    color: var(--background);
+    transform: scale(1.1);
+}
+
+.create-account-btn p {
+    padding-top: 1em;
+    color: var(--gold);
+}
+
+.create-account-btn p a {
+    text-decoration: none;
+    color: var(--black);
+    padding-left: 0.3em;
+}
+
+.create-account-btn p a:hover {
+    text-decoration: underline;
+    color: var(--background);
+}
+
+.create-account-errors {
+    color: red;
+    font-size: 0.7em;
+    margin-top: 0.2em;
+}
+
+/* .form-group input::placeholder {
+    color:white; 
+    opacity: 1; 
+} */
