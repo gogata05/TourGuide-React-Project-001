@@ -9,6 +9,7 @@ import { CreateAccount } from "./components/CreateAccount";
 import { Login } from "./components/Login";
 import { Logout } from "./components/Logout";
 import { NotFound } from "./components/NotFound";
+import { Profile } from "./components/Profile";
 function App() {
 
     return (
@@ -21,6 +22,7 @@ function App() {
                             <Route path="/" element={<Home />} />
                             <Route path="/user/login" element={<Login />} />
                             <Route path="/user/create-account" element={<CreateAccount />} />
+                            <Route path="/user/profile/:userId" element={<Profile />} />
                             <Route path="/user/logout" element={<Logout />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
