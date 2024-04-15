@@ -7,9 +7,8 @@ import { Footer } from "./components/Footer";
 import { Home } from "./components/Home";
 import { CreateAccount } from "./components/CreateAccount";
 import { Login } from "./components/Login";
-import { Logout } from './Logout';
-import { NotFound } from './NotFound';
-
+import { Logout } from "./components/Logout";
+import { NotFound } from "./components/NotFound";
 function App() {
 
     return (
