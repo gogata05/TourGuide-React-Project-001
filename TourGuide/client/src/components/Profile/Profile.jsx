@@ -7,12 +7,14 @@ import styles from './Profile.module.css';
 import { useAuthContext } from '../../contexts/AuthContext';
 import * as authService from '../../services/authService';
 import { Loading } from "../Loading";
+import { DeleteModal } from '../DeleteModal';
 
 export const Profile = () => {
 
     const { userId, onLogout } = useAuthContext();
     const [profile, setProfile] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,6 +27,21 @@ export const Profile = () => {
                 console.log(err);
             })
     }, [userId]);
+
+    const handleDelete = () => {
+        setIsDeleteModal(true);
+    }
+
+    const handleCancelDelete = () => {
+        setIsDeleteModal(false);
+    }
+
+    const confirmDeleteProfile = () => {
+        authService.deleteProfile(userId);
+        setIsDeleteModal(false);
+        onLogout();
+        navigate('/user/login');
+    }
 
     return (
         <>
@@ -49,10 +66,17 @@ export const Profile = () => {
                         </div>
                         <div className={styles['profile-btn']}>
                             <Link to={`/user/edit-profile/${profile._id}`}><i className="fa-solid fa-square-pen"></i>Edit</Link>
+                            <Link onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</Link>
+                            {/* <button className={styles['profile-delete-btn']} onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button> */}
                         </div>
                     </div>
                 </section>
             }
+            {isDeleteModal
+                ? <DeleteModal isConfirm={confirmDeleteProfile} isCancel={handleCancelDelete} />
+                : null
+            }
+
         </>
     )
 }
