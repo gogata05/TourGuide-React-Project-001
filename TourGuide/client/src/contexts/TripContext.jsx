@@ -57,8 +57,8 @@ export const TripProvider = ({
     // }
 
     const context = {
-        onCreateTripSubmit,
-        onEditTripSubmit,
+        // onCreateTripSubmit,
+        // onEditTripSubmit,
         tripId: trip._id,
         cityOfDeparture: trip.cityOfDeparture,
         cityOfArrival: trip.cityOfArrival,
