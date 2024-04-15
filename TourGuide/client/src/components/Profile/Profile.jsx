@@ -47,11 +47,12 @@ export const Profile = () => {
                                 </ul>
                             </div>
                         </div>
-                    
+                        <div className={styles['profile-btn']}>
+                            <Link to={`/user/edit-profile/${profile._id}`}><i className="fa-solid fa-square-pen"></i>Edit</Link>
+                        </div>
                     </div>
                 </section>
             }
-        
         </>
     )
 }

@@ -1,0 +1,99 @@
+@media (width <=768px) {
+    .site-edit-account {
+        margin: 15em auto;
+    }
+
+    .site-edit-account .container {
+        width: 400px;
+    }
+}
+
+.site-edit-account h3 {
+    text-align: center;
+    padding: 1.5em 0;
+    color: var(--gold);
+}
+
+.site-edit-account .container {
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108,137,167,0.75);
+    padding: 1em 0;
+    margin: 0 auto;
+    margin-bottom: 5em;
+    border-radius: 0.5em;
+    max-width: 1200px;
+}
+
+.site-edit-account form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1em 0 0 0;
+    gap: 1em;
+}
+
+.form-group-edit {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.3em;
+    padding: 0 4em;
+}
+
+.form-group-edit label {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--whiteText);
+    
+}
+
+.form-group-edit input {
+    width: 100%;
+    text-indent: 0.5em;
+    margin-top: 0.7em;
+    border: none;
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.form-group-edit input:-webkit-autofill {
+    background-color: rgba(74, 72, 72, 0.5);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-group-edit input:focus{
+    border: none;
+    outline: none;
+}
+
+.form-group-edit input:-webkit-autofill:focus {
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.edit-btn-trip {
+    margin: 1.5em 0 0.5em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 2;
+}
+
+.edit-btn-trip input {
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.3em 2.5em;
+    color: var(--gold);
+    cursor: pointer;
+    background-color: var(--black);
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.edit-btn-trip input:hover {
+    color: var(--background);
+    transform: scale(1.1);
+}
+
+.edit-profile-errors {
+    color: red;
+    font-size: 0.7em;
+    margin-top: 0.2em;
+}
