@@ -13,6 +13,7 @@ import { Profile } from "./components/Profile";
 import { EditProfile } from "./components/EditProfile";
 import { CreateTrip } from "./components/CreateTrip";
 import { RouteGuard } from "./components/RouteGuards";
+import { AllTrips } from "./components/AllTrips";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                                 <Route path="/user/edit-profile/:userId" element={<EditProfile />} />
                                 <Route path="/trip/create-trip" element={<CreateTrip />} />
                             </Route>
+                            <Route path="/all-trips" element={<AllTrips />} />
                             <Route path="/user/logout" element={<Logout />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>

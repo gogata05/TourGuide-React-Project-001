@@ -1,0 +1,88 @@
+.all-trips {
+    color: var(--whiteText);
+}
+
+.all-trips .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.all-trips h3 {
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+.search-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3em;
+}
+
+.search-field input {
+    padding-left: 0.5em;
+    font-style: italic;
+    width: 250px;
+    border-radius: 0.3em;
+}
+
+.search-field input:-webkit-autofill {
+    background-color: rgba(74, 72, 72, 0.5);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.search-field input:focus {
+    outline: none;
+}
+
+.search-field input:-webkit-autofill:focus{
+    background-color: rgba(74, 72, 72, 0.5);
+}
+
+.search-field a {
+    margin-left: 1em;
+    padding: 0 1em;
+    text-decoration: none;
+    border-radius: 0.3em;
+    background-color: var(--whiteText);
+    color: var(--fasolid);
+}
+
+.search-field a:hover {
+    color: var(--whiteText);
+    background-color: var(--background);
+}
+
+
+.trip-list {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4em;
+    margin: 0.5em 5em 5em 5em;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4em;
+}
+
+.previous-btn{
+    cursor: pointer;
+    padding: 0.5em 1em;
+    margin-right: 1em;
+    border-radius: 0.5em;
+    color: var(--black);
+}
+
+.next-btn{
+    cursor: pointer;
+    padding: 0.5em 2em;
+    margin-left: 1em;
+    border-radius: 0.5em;
+    color: var(--black);
+}
