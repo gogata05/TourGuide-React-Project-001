@@ -1,0 +1,71 @@
+.trip-card {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 1em;
+    flex: 0 1 30%;
+    padding: 1em 1.5em;
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    border-radius: 0.5em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.trip-card:hover {
+    transform: scale(1.05);
+}
+
+.trip-media p {
+    padding-top: 0.3em;
+    text-align: center;
+}
+
+.trip-media img {
+    width: 4.5em;
+    height: 4.5em;
+    border-radius: 50%;/*to change the trip card image radius*/
+    
+}
+
+.trip-content-left ul li,
+.trip-content-right ul li {
+    display: block;
+    color: var(--whiteText);
+}
+
+.trip-content-left ul li:not(:last-child),
+.trip-content-right ul li:not(:last-child) {
+    padding-bottom: 0.1em;
+}
+
+.trip-content-left ul li span,
+.trip-content-right ul li span {
+    padding-right: 0.5em;
+    color: var(--fasolid);
+}
+
+.trip-content-right ul li:last-child {
+    margin-top: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.trip-content-right ul li:last-child:hover {
+    transform: scale(1.1);
+}
+
+.trip-content-right ul li:last-child a {
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    background-color: var(--whiteText);
+    color: var(--fasolid);
+}
+
+
+.trip-content-right ul li:last-child a:hover {
+    text-decoration: underline;
+    color: var(--whiteText);
+    background-color: var(--background);
+}
