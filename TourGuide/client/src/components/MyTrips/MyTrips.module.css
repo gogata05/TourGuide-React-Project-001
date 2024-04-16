@@ -1,0 +1,92 @@
+.my-trips {
+    color: var(--whiteText);
+}
+
+.my-trips .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.my-trips h3 {
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+.my-trip-list {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4em;
+    margin: 0.5em 5em 5em 5em;
+}
+
+.no-trips {
+    margin: 0 auto;
+}
+
+/* .my-trip-card {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2em;
+    flex: 0 1 30%;
+    padding: 1em 3em;
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    border-radius: 0.5em;
+}
+
+.my-trip-media p {
+    padding-top: 0.7em;
+    text-align: center;
+}
+
+.my-trip-media img {
+    width: 4.3em;
+    border-radius: 50%;
+}
+
+.my-trip-content-left ul li,
+.my-trip-content-right ul li {
+    display: block;
+    color: var(--whiteText);
+}
+
+.my-trip-content-left ul li:not(:last-child),
+.my-trip-content-right ul li:not(:last-child) {
+    padding-bottom: 0.1em;
+}
+
+.my-trip-content-left ul li span,
+.my-trip-content-right ul li span {
+    padding-right: 0.5em;
+    color: var(--fasolid);
+}
+
+.my-trip-content-right ul li:last-child {
+    margin-top: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.my-trip-content-right ul li:last-child:hover {
+    transform: scale(1.1);
+}
+
+.my-trip-content-right ul li:last-child a {
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    background-color: var(--whiteText);
+    color: var(--fasolid);
+}
+
+
+.my-trip-content-right ul li:last-child a:hover {
+    text-decoration: underline;
+    color: var(--whiteText);
+    background-color: var(--background);
+} */

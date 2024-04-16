@@ -14,6 +14,7 @@ import { EditProfile } from "./components/EditProfile";
 import { CreateTrip } from "./components/CreateTrip";
 import { RouteGuard } from "./components/RouteGuards";
 import { AllTrips } from "./components/AllTrips";
+import { MyTrips } from "./components/MyTrips";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                                 <Route path="/user/profile/:userId" element={<Profile />} />
                                 <Route path="/user/edit-profile/:userId" element={<EditProfile />} />
                                 <Route path="/trip/create-trip" element={<CreateTrip />} />
+                                <Route path="/trip/my-trips" element={<MyTrips />} />
                             </Route>
                             <Route path="/all-trips" element={<AllTrips />} />
                             <Route path="/user/logout" element={<Logout />} />
