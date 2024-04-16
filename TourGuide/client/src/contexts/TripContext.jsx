@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import * as tripService from '../services/tripService';
+import * as tripService from '../services/tripService';
 import { useAuthContext } from '../contexts/AuthContext'
 
 export const TripContext = createContext();
@@ -24,22 +24,22 @@ export const TripProvider = ({
 
     }, [serverError])
 
-    // const onCreateTripSubmit = async (tripData) => {
+    const onCreateTripSubmit = async (tripData) => {
 
-    //     try {
+        try {
 
-    //         tripData.owner = userId;
+            tripData.owner = userId;
 
-    //         const newTrip = await tripService.createTrip(tripData);
+            const newTrip = await tripService.createTrip(tripData);
 
-    //         setTrip(newTrip);
+            setTrip(newTrip);
 
-    //         navigate('/all-trips');
-    //     } catch (error) {
-    //         console.log(error);
-    //         setServerError(error.message);
-    //     }
-    // }
+            navigate('/all-trips');
+        } catch (error) {
+            console.log(error);
+            setServerError(error.message);
+        }
+    }
 
     // const onEditTripSubmit = async (tripData) => {
             
@@ -57,7 +57,7 @@ export const TripProvider = ({
     // }
 
     const context = {
-        // onCreateTripSubmit,
+        onCreateTripSubmit,
         // onEditTripSubmit,
         tripId: trip._id,
         cityOfDeparture: trip.cityOfDeparture,

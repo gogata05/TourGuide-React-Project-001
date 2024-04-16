@@ -11,6 +11,9 @@ import { Logout } from "./components/Logout";
 import { NotFound } from "./components/NotFound";
 import { Profile } from "./components/Profile";
 import { EditProfile } from "./components/EditProfile";
+import { CreateTrip } from "./components/CreateTrip";
+import { RouteGuard } from "./components/RouteGuards";
+
 
 function App() {
 
@@ -24,8 +27,11 @@ function App() {
                             <Route path="/" element={<Home />} />
                             <Route path="/user/login" element={<Login />} />
                             <Route path="/user/create-account" element={<CreateAccount />} />
-                            <Route path="/user/profile/:userId" element={<Profile />} />
-                            <Route path="/user/edit-profile/:userId" element={<EditProfile />} />
+                            <Route element={<RouteGuard />}>
+                                <Route path="/user/profile/:userId" element={<Profile />} />
+                                <Route path="/user/edit-profile/:userId" element={<EditProfile />} />
+                                <Route path="/trip/create-trip" element={<CreateTrip />} />
+                            </Route>
                             <Route path="/user/logout" element={<Logout />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
