@@ -1,19 +1,19 @@
 import * as requester from '../services/requester';
 
-export const getAllTrip = async (page) => {
+export const getAllTrip = async (page) => { // тук добавям номера на страницата като параметър;
 
     try {
-        const result = await requester.get(`/trips/allTrip?page=${page}`); 
+        const result = await requester.get(`/trips/allTrip?page=${page}`); // тук променям URL към който правя заявката като добавям номера на станицата
         return result;
     } catch (error) {
         console.log(error);
     }
 }
 
-export const getAllTripWithSearch = async (searchQuery, page) => { 
+export const getAllTripWithSearch = async (searchQuery, page) => { // тук добавям номера на страницата като параметър;
 
     try {
-        const url = `/trips/allTrip?page=${page}${searchQuery ? `&search=${searchQuery}` : ''}`; 
+        const url = `/trips/allTrip?page=${page}${searchQuery ? `&search=${searchQuery}` : ''}`; // тук променям URL към който правя заявката като добавям номера на станицата
         const result = await requester.get(url);
         return result;
     } catch (error) {

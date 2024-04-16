@@ -1,10 +1,64 @@
 import React, { useEffect, useState } from "react";
 import styles from './Home.module.css';
+// import { Link } from "react-router-dom";
+
+import { getLastThreeTrips } from '../../services/tripService';
+import { TripItem } from "../AllTrips/TripItem";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import * as tripService from '../../services/tripService';
+// import { Loading } from "../Loading";
 
 export const Home = () => {
-    
+    const [trips, setTrips] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchTrips = async () => {
+            try {
+                const result = await getLastThreeTrips();
+                console.log(result);
+                setTrips(result);
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Error fetching trips GM:', error);
+                setIsLoading(false);
+            }
+        };
+        fetchTrips();
+    }, []);
+
+    const settings = {
+        dots: true,
+        arrows: true, 
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true
+    };
+
     return (
         <section className={styles['site-home']}>
+            <div className={styles['card-container']}>
+                <div className={styles.container}>
+                    <h1>Welcome to the World of Tour Guiding!</h1>
+                    <p>Explore the world with our guided tours. Discover new places, cultures, and experiences.</p>
+                    {isLoading ? (
+                        <p>Loading...</p>
+                    ) : (
+                        <Slider {...settings}>
+                            {trips.map(trip => (
+                                <div key={trip._id}>
+                                    <TripItem trip={trip} />
+                                </div>
+                            ))}
+                        </Slider>
+                    )}
+                </div>
+            </div>
+            <section className={styles['site-home']}>
             <div className={styles['card-container']}>
                 <div className={styles.container}>
                     <h1>Tour Guide App</h1>
@@ -77,5 +131,6 @@ export const Home = () => {
             </div>
         </section>
 
+        </section>
     );
 }
