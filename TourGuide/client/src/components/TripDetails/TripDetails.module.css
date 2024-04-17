@@ -1,0 +1,406 @@
+.trip-details {
+    color: #fff;
+}
+
+.trip-details h3 {
+    text-align: center;
+    padding-top: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+.trip-details .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    max-width: 1200px;
+}
+
+.trip-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    gap: 2em;
+}
+
+/* TRIP INFO */
+
+.trip-info {
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    border-radius: 0.5em;
+}
+
+.trip-info h5 {
+    text-align: center;
+    padding: 0.5em 0 1.5em 0;
+}
+
+.route,
+.date-time {
+    margin-bottom: 1em;
+}
+
+.trip-btn {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+}
+
+.route,
+.date-time,
+.price-place {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
+    padding: 0 1em;
+}
+
+.route h6 i,
+.date-time p i,
+.price-place p i {
+    padding-right: 0.5em;
+}
+
+.route h6 span,
+.date-time p span,
+.price-place p span {
+    padding-right: 0.3em;
+}
+
+.date-time p span,
+.price-place p span {
+    color: var(--fasolid);
+}
+
+.date-time p i,
+.price-place p i {
+    color: var(--fasolid);
+}
+
+.route h6:first-child {
+    color: green;
+}
+
+.route h6:last-child {
+    color: red;
+}
+
+.trip-info-content ul li {
+    display: block;
+}
+
+.trip-info-content ul li:not(:last-child) {
+    padding-bottom: 0.7em;
+}
+
+.trip-info-content ul li span {
+    padding-right: 0.5em;
+    color:  var(--fasolid);
+}
+
+.trip-btn a:first-child {
+    text-decoration: none;
+    color: var(--whiteText);
+    background-color: orange;
+    padding: 0.3em 1.5em;
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.trip-btn a:first-child:hover {
+    transform: scale(1.1);
+    color: var(--black);
+}
+
+.trip-btn a:first-child i {
+    padding-right: 0.5em;
+}
+
+.trip-btn a:last-child {
+    text-decoration: none;
+    color: var(--whiteText);
+    background-color: darkred;
+    padding: 0.3em 1.5em;
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.trip-btn a:last-child:hover {
+    transform: scale(1.1);
+    color: var(--black);
+}
+
+.trip-btn a:last-child i {
+    padding-right: 0.5em;
+}
+
+/* DRIVER INFO */
+
+.driver-info {
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    border-radius: 0.5em;
+}
+
+.driver-info h5 {
+    text-align: center;
+    padding: 0.5em 0 1.5em 0;
+}
+
+.driver-info-columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    padding: 1em;
+}
+
+.driver-info .trip-info-media img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+}
+
+.driver-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+}
+
+.driver-btn .details-edit-profile {
+    text-decoration: none;
+    color: var(--whiteText);
+    background-color: orange;
+    padding: 0.3em 1.5em;
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.driver-btn a:first-child:hover {
+    transform: scale(1.1);
+    color: var(--black);
+}
+
+.driver-btn a:first-child i {
+    padding-right: 0.5em;
+}
+
+.driver-btn .details-delete-profile {
+    text-decoration: none;
+    color: var(--whiteText);
+    background-color: darkred;
+    padding: 0.3em 1.5em;
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.driver-btn a:nth-child(2):hover {
+    transform: scale(1.1);
+    color: var(--black);
+}
+
+.driver-btn a:nth-child(2) i {
+    padding-right: 0.5em;
+}
+
+.driver-btn .like-btn {
+    text-decoration: none;
+    color: var(--whiteText);
+    background-color: rgba(8, 102, 255, 1);
+    padding: 0.3em 1.5em;
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.driver-btn .unlike-btn {
+    text-decoration: none;
+    color: var(--whiteText);
+    background-color: rgb(255, 12, 8);
+    padding: 0.3em 1.5em;
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+
+.driver-btn .like-btn:hover {
+    transform: scale(1.1);
+    color: var(--black);
+}
+
+.driver-btn a:last-child i {
+    padding-right: 0.5em;
+}
+
+.like-text{
+    padding-left: 0.2em;
+}
+
+span {
+    font-style: italic;
+}
+
+/* CAR INFO */
+
+.car-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(74, 72, 72, 0.5);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+    border-radius: 0.5em;
+}
+
+.car-info h5 {
+    padding: 0.5em 0 1.5em 0;
+}
+
+.car-info-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4em;
+    padding: 1em;
+}
+
+.car-info-columns p span {
+    padding-right: 0.5em;
+    color: var(--fasolid);
+}
+
+.car-info-columns p i {
+    color: var(--fasolid);
+}
+
+.car-info-media {
+    max-width: 14em;
+}
+
+.left-car-info,
+.right-car-info {
+    text-align: left;
+}
+
+.left-car-info p:not(:last-child),
+.right-car-info p:not(:last-child) {
+    padding-bottom: 0.7em;
+}
+
+.left-car-info p i,
+.right-car-info p i {
+    padding-right: 0.5em;
+}
+
+/* COMMENTS */
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.comments ul li{
+    display: block;
+    padding: 1em;
+}
+
+.comments ul li div {
+    padding: 1em;
+    text-align: start;
+    width: 30em;
+    border-radius: 0.5em;
+    color: var(--black);
+    background-color: var(--whiteText);
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+}
+
+.comments ul li div span {
+    padding-right: 0.5em;
+}
+
+.comment-username {
+    color: var(--fasolid);
+}
+
+.comment-time{
+    color: var(--fasolid);
+    font-size: 0.6em;
+    padding-left: 0.7em;
+}
+
+.create-comment {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form textarea {
+    height: 5em;
+    width: 20em;
+    box-shadow: 10px 10px 78px 6px rgba(108, 137, 167, 0.75);
+}
+
+.form textarea:focus {
+    outline: none;
+}
+
+.form input {
+    max-width: 7em;
+    border: none;
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.5s;
+    color: var(--fasolid);
+    background-color: var(--whiteText);
+}
+
+.form input:hover{
+    text-decoration: underline;
+    transform: scale(1.1);
+    color: var(--whiteText);
+    background-color: var(--background);
+}
+
+.comment-btn {
+    text-align: end;
+}
+
+.comment-btn span i {
+    font-size: 0.7em;
+}
+
+.edit-comment-pic {
+    padding-left: 1em;
+}
+
+.edit-comment-pic,
+.delete-comment-pic {
+    cursor: pointer;
+} 
+
+.edit-comment-pic i,
+.delete-comment-pic i {
+    color: var(--fasolid);
+}

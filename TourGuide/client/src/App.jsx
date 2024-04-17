@@ -15,6 +15,7 @@ import { CreateTrip } from "./components/CreateTrip";
 import { RouteGuard } from "./components/RouteGuards";
 import { AllTrips } from "./components/AllTrips";
 import { MyTrips } from "./components/MyTrips";
+import { TripDetails } from "./components/TripDetails";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                                 <Route path="/trip/my-trips" element={<MyTrips />} />
                             </Route>
                             <Route path="/all-trips" element={<AllTrips />} />
+                            <Route path="/trip/trip-details/:tripId" element={<TripDetails />} />
                             <Route path="/user/logout" element={<Logout />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
