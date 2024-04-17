@@ -1,18 +1,28 @@
 import { Link, useParams } from "react-router-dom";
+
 import React, { useEffect, useState } from "react";
 import styles from './TripDetails.module.css';
-import { useNavigate } from "react-router-dom";
+
 import * as tripService from '../../services/tripService';
-import { formatDate } from '../../utils/dateUtil';
+import * as likeService from '../../services/likeService';
+import * as commentService from '../../services/commentService';
+
+import { formatDate, commentTime } from '../../utils/dateUtil';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { Loading } from "../Loading";
 
+
 export const TripDetails = () => {
+
     const { tripId } = useParams();
     const { userId, isAuthenticated } = useAuthContext();
     const [detailsTrip, setDetailsTrip] = useState({});
+    const [allLikes, setAllLikes] = useState([]);
+    const [userLiked, setUserLiked] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const navigate = useNavigate();
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState('');
+
 
     useEffect(() => {
         tripService.getOneTrip(tripId)
@@ -23,14 +33,72 @@ export const TripDetails = () => {
             .catch(err => {
                 console.log(`Trip details GM ${err}`)
             })
+
     }, [tripId]);
 
-    const handleDelete = () => {
-        tripService.deleteTrip(tripId).then(() => {
-            navigate('/trip/create-trip');
-        }).catch(error => {
-            console.log('Error deleting trip GM', error);
-        });
+    useEffect(() => {
+        if (detailsTrip.owner) {
+            likeService.allLikes()
+                .then(likes => {
+                    setAllLikes(likes);
+                    const userLikedProfile = likes.some(like => like.user === userId && like.likedUser === detailsTrip.owner._id);
+                    setUserLiked(userLikedProfile)
+                })
+                .catch(err => {
+                    console.log(`Error fetching likes GM: ${err}`);
+                })
+        }
+    }, [userId, detailsTrip.owner]);
+
+    useEffect(() => {
+        commentService.getComments(tripId)
+            .then(commentsTrip => {
+                setComments(commentsTrip)
+            })
+            .catch(err => {
+                console.log('Comment Error GM', err);
+            })
+    }, [tripId]);
+
+    const handleAddComment = async (event) => {
+        event.preventDefault();
+
+        try {
+            await commentService.addComment(userId, tripId, newComment);
+
+            const commentsData = await commentService.getComments(tripId);
+            setComments(commentsData);
+            setNewComment('');
+        } catch (error) {
+            console.error('Error adding comment GM:', error);
+        }
+    }
+
+
+    const onLike = async () => {
+        await likeService.likeUser(userId, detailsTrip.owner._id)
+            .then(() => {
+                setAllLikes(prevLikes => {
+                    const newLikes = [...prevLikes, { user: userId, likedUser: detailsTrip.owner._id }];
+                    return newLikes;
+                });
+                setUserLiked(true);
+            })
+            .catch(err => {
+                console.log('Error while liking the profile GM:', err);
+            });
+
+    }
+
+    const onUnlike = async () => {
+        try {
+            await likeService.unlikeUser(userId, detailsTrip.owner._id);
+            const updatedLikes = await likeService.allLikes();
+            setAllLikes(updatedLikes);
+            setUserLiked(false);
+        } catch (err) {
+            console.log('Error while unliking the profile GM:', err);
+        }
     }
 
     return (
@@ -62,7 +130,9 @@ export const TripDetails = () => {
 
                                     {detailsTrip.owner?._id === userId ? (
                                         <div className={styles['trip-btn']}>
-                                            <Link onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</Link>
+                                            <Link to={`/trip/edit-trip/${detailsTrip._id}`}><i className="fa-solid fa-square-pen"></i>Edit</Link>
+
+                                            {/* <Link onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</Link> */}
                                         </div>
                                     ) : null}
                                 </div>
@@ -86,7 +156,7 @@ export const TripDetails = () => {
                                         <p><i className="fa-solid fa-align-left"></i><span>Description:</span>{detailsTrip.description}</p>
                                     </div>
                                     <div className={styles['car-info-media']}>
-                                        <img src={detailsTrip.tripImg} alt={`${detailsTrip.description}${detailsTrip.cityOfDeparture} Image`} />
+                                        <img src={detailsTrip.tripImg} alt={`${detailsTrip.description}${detailsTrip.cityOfDeparture} Image`} />{/*?*/}
                                     </div>
                                 </div>
                             </div>
@@ -116,12 +186,75 @@ export const TripDetails = () => {
                                             }
                                         </ul>
                                     </div>
+
+                                    <div className={styles['driver-btn']}>
+                                        {detailsTrip.owner?._id === userId ? (
+                                            <>
+                                                <Link className={styles['details-edit-profile']} to={`/user/edit-profile/${detailsTrip.owner?._id}`}><i className="fa-solid fa-square-pen"></i>Edit</Link>
+                                                {/* <Link className={styles['details-delete-profile']} onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</Link> */}
+                                            </>
+                                        ) : null}
+                                        {detailsTrip.owner?._id !== userId ? (
+                                            <>
+                                                {userLiked
+                                                    ? <Link className={styles['unlike-btn']} onClick={onUnlike}><i className="fa-solid fa-thumbs-down"></i><span>{allLikes.filter(like => like.likedUser === detailsTrip.owner?._id).length}<span className={styles['like-text']}>Likes</span></span></Link>
+                                                    : <Link className={styles['like-btn']} onClick={onLike}><i className="fa-solid fa-thumbs-up"></i><span>{allLikes.filter(like => like.likedUser === detailsTrip.owner?._id).length}<span className={styles['like-text']}>Likes</span></span></Link>
+                                                }
+                                            </>
+                                        ) : null}
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        {isAuthenticated
+                            ? <div className={styles.comments}>
+                                <h3>Comments:</h3>
+                                {comments.length === 0
+                                    ? <p>No comments yet</p>
+                                    : <ul>
+                                        {comments.map((comment) => (
+
+                                            <li key={comment._id} className={styles.comment}>
+                                                <div className={styles['comment-info']}>
+                                                    <span className={styles['comment-username']}>{comment.user?.username}:</span>
+                                                    {comment.text}
+                                                    <span className={styles['comment-time']}>{commentTime(comment.createdAt)}
+                                                        {comment.user?._id === userId &&
+                                                            <>
+                                                                <Link onClick={() => handleEditComment(comment._id, comment.text)}><span className={styles['edit-comment-pic']}><i className="fa-solid fa-pen-to-square"></i></span></Link>
+                                                                <Link onClick={() => handleDeleteComment(comment._id)}><span className={styles['delete-comment-pic']}><i className="fa-solid fa-trash"></i></span></Link>
+                                                            </>
+                                                        }
+                                                    </span>
+                                                </div>
+                                            </li>
+
+                                        ))}
+                                    </ul>
+                                }
+                                <div className={styles['create-comment']}>
+                                    <label>Add new comment:</label>
+                                    <form className={styles.form} onSubmit={handleAddComment}>
+                                        <textarea
+                                            name="comment"
+                                            placeholder="Comment......"
+                                            value={newComment}
+                                            onChange={(event) => setNewComment(event.target.value)}
+                                        ></textarea>
+                                        <input className={styles['btn submit']} type="submit" value="Add Comment" />
+                                    </form>
+                                </div>
+                            </div>
+                            : null
+                        }
                     </div>
-                </section>
+                </section >
             }
+
+
+
+       
         </>
     )
 }
