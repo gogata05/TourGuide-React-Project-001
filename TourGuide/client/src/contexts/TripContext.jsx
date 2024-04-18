@@ -41,24 +41,24 @@ export const TripProvider = ({
         }
     }
 
-    // const onEditTripSubmit = async (tripData) => {
+    const onEditTripSubmit = async (tripData) => {
             
-    //     try {
+        try {
 
-    //         const editTrip = await tripService.editTrip(tripData._id, tripData);
+            const editTrip = await tripService.editTrip(tripData._id, tripData);
 
-    //         setTrip(editTrip);
+            setTrip(editTrip);
 
-    //         navigate(`/trip/trip-details/${tripData._id}`);
-    //     } catch (error) {
-    //         setServerError(error.message);
-    //     }
+            navigate(`/trip/trip-details/${tripData._id}`);
+        } catch (error) {
+            setServerError(error.message);
+        }
 
-    // }
+    }
 
     const context = {
         onCreateTripSubmit,
-        // onEditTripSubmit,
+        onEditTripSubmit,
         tripId: trip._id,
         cityOfDeparture: trip.cityOfDeparture,
         cityOfArrival: trip.cityOfArrival,
