@@ -54,25 +54,22 @@ MongoDB with Mongoose is used for storing & managing the data.
 
 
 ## Demo
-Live demo at Replit  - https://replit.com/@GeorgiMarkov/TourGuide-React-Project-001?v=1
-Live demo at Youtube - https://youtu.be/ry2zJRCZipk
+### Live demo at Replit  - https://replit.com/@GeorgiMarkov/TourGuide-React-Project-001?v=1
+### Live demo at Youtube - https://youtu.be/ry2zJRCZipk
 
 ## Photos
-
-Recently Added Posts in Home page:
-
-![image](Images/Home%20Recent%20-%20last%203%20added%20trips.png) 
-
-
-Search page:
-
-![image](Images/Search.png) 
-
 
 All Posts page with pagination:
 
 ![image](Images/All%20Trips.png) 
 
+Recently Added Posts in Home page:
+
+![image](Images/Home%20Recent%20-%20last%203%20added%20trips.png) 
+
+Footer:
+
+![image](Images/footer.png) 
 
 Comments on Post:
 
@@ -83,15 +80,13 @@ Likes on Post:
 
 ![image](Images/Likes.png) 
 
+Error 404:
+
+![image](Images/404.jpg) 
 
 Register page:
 
 ![image](Images/register.png) 
-
-
-Error 404:
-
-![image](Images/404.jpg) 
 
 
 Add Post page:
@@ -108,6 +103,9 @@ Edit User Info page:
 
 ![image](Images/Edit%20Profile.png) 
 
+Search page:
+
+![image](Images/Search.png) 
 
 Delete Post With Confirmation:
 
