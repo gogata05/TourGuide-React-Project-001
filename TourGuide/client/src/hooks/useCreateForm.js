@@ -46,8 +46,8 @@ export const useCreateForm = (initialValues, onSubmitHandler) => {
         
         if (!values.description) {
             errors.description = 'Description is required!';
-        } else if (values.description.length > 15) {
-            errors.description = 'Description of departure must be no more 15 characters!'
+        } else if (values.description.length > 25) {
+            errors.description = 'Description of departure must be no more 25 characters!'
         }
 
         if (!values.tripImg) {

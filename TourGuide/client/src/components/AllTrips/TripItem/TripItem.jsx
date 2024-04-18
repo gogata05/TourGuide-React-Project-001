@@ -1,9 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-import React from "react";
+import { formatDate } from '../../../utils/dateUtil';
+
 import styles from './TripItem.module.css';
 
-import { formatDate } from '../../../utils/dateUtil';
 
 export const TripItem = ({
     trip

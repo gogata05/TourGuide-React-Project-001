@@ -1,9 +1,9 @@
 import React from "react";
-import styles from './MyTripsItem.module.css';
-
 import { Link } from "react-router-dom";
 
 import { formatDate } from '../../../utils/dateUtil'
+import styles from './MyTripsItem.module.css';
+
 
 export const MyTripsItem = ({
     myTrip
@@ -11,15 +11,15 @@ export const MyTripsItem = ({
     return (
         <div className={styles['my-trip-card']}>
             <div className={styles['my-trip-media']}>
-                <img src={myTrip.owner?.profilePicture} alt={`${myTrip.owner?.firstName} pic`}/>
-                <p>{myTrip.owner?.firstName}</p>
+                 <img src={myTrip.tripImg} alt={`${myTrip.tripImg} Image`}/>
+                <p>{myTrip.cityOfArrival}</p>
             </div>
             <div className={styles['my-trip-content-left']}>
                 <ul>
                     <li><span>From:</span>{myTrip.cityOfDeparture}</li>
                     <li><span>Date:</span>{formatDate(myTrip.dateOfTrip)}</li>
                     <li><span>Price:</span>{myTrip.priceOfTrip}{myTrip.currency}</li>
-                    <li><span>busNumber:</span>{myTrip.busNumber}</li>
+                    <li><span>BusNumber:</span>{myTrip.busNumber}</li>
                 </ul>
             </div>
             <div className={styles['my-trip-content-right']}>

@@ -40,7 +40,7 @@ const tripSchema = new mongoose.Schema(
     description: {
       type: String,
       required: [true, "Description field is required!"],
-      maxLength: [15, "Description must be no more 15 characters"],
+      maxLength: [20, "Description must be no more 20 characters"],
     },
 
     tripImg: {
