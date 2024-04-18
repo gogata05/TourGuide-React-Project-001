@@ -54,7 +54,8 @@ MongoDB with Mongoose is used for storing & managing the data.
 
 
 ## Demo
-Live demo at Replit - 
+Live demo at Replit  - https://replit.com/@GeorgiMarkov/TourGuide-React-Project-001?v=1
+Live demo at Youtube - https://youtu.be/ry2zJRCZipk
 
 ## Photos
 
@@ -111,7 +112,6 @@ Edit User Info page:
 Delete Post With Confirmation:
 
 ![image](Images/Delete%20Trip.png) 
-
 
 Details:
 
