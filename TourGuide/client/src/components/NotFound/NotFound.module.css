@@ -20,9 +20,9 @@
 
 .page-404 .container {
     margin: 0 auto;
-    background-image: url(../images/Error-404.jpeg);
+    background-image: url(../images/Error-404.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 40em;
+    min-height: 53em;
 }
