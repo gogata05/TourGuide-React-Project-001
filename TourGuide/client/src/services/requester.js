@@ -2,27 +2,25 @@ const hostname = 'https://tourguide-react-project-001.onrender.com';
 // const hostname = 'http://localhost:3000';
 
 async function request(url, option) {
-  // try {
+  try {
+    const response = await fetch(hostname + url, option);
 
-  const response = await fetch(hostname + url, option);
+    if (response.ok !== true) {
+      const err = await response.json();
+      throw new Error(err.message);
+    }
 
-  if (response.ok !== true) {
-    const err = await response.json();
-    throw new Error(err.message);
+    if (response.status === 204) {
+      return response;
+    } else if (response.headers.has('content-type') && response.headers.get('content-type').includes('application/json')) {
+      return response.json();
+    } else {
+      return response.text();
+    }
+  } catch (error) {
+    // alert(error.message);
+    throw error;
   }
-
-  if (response.status === 204) {
-    return response;
-  } else if (response.headers.has('content-type') && response.headers.get('content-type').includes('application/json')) {
-    return response.json();
-  } else {
-    return response.text();
-  }
-
-  // } catch (error) {
-  //     // alert(error.message);
-  //     throw error;
-  // }
 }
 
 function createOptions(method = 'GET', data) {
