@@ -17,13 +17,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 expressConfig(app);
-// app.use(cors({ origin: "*", credentials: true }));
-app.use(
-  cors({
-    origin: "https://tour-guide-react-project-001-ama7.vercel.app",
-    credentials: true,
-  })
-);
+app.use(cors({ origin: "*", credentials: true }));
+// app.use(
+//   cors({
+//     origin: "https://tour-guide-react-project-001-ama7.vercel.app",
+//     credentials: true,
+//   })
+// );
 app.use(cookieParser());
 app.use(auth);
 app.use(router);
