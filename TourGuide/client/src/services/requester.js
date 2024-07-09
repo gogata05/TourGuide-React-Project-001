@@ -1,5 +1,5 @@
-// const hostname = "https://tourguide-react-project-001.onrender.com";
-const hostname = 'http://localhost:3000';
+const hostname = 'https://tourguide-react-project-001.onrender.com';
+// const hostname = 'http://localhost:3000';
 
 async function request(url, option) {
   // try {
