@@ -33,5 +33,59 @@ exports.register = async (firstName, lastName, username, email, profilePicture, 
     password: hashedPassword
   };
 
-  return User.create(userData);
+  const user = await User.create(userData);
+  return user;
 };
+
+exports.login = async (email, password) => {
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      throw {
+        message: 'Invalid email or password'
+      };
+    }
+
+    const isValid = await bcrypt.compare(password, user.password);
+
+    if (!isValid) {
+      throw {
+        message: 'Invalid email or password'
+      };
+    }
+    return user;
+  } catch (error) {
+    console.error('Error during login:', error);
+    throw error;
+  }
+};
+
+exports.createToken = user => {
+  const payload = {
+    _id: user._id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    username: user.username,
+    email: user.email,
+    profilePicture: user.profilePicture,
+    phone: user.phone
+  };
+  const options = { expiresIn: '1d' };
+
+  return new Promise((resolve, reject) => {
+    jwt.sign(payload, SECRET, options, (err, decodedToken) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(decodedToken);
+    });
+  });
+};
+
+exports.getUser = userId => User.findById(userId);
+exports.editUser = async (userId, userData) => {
+  return await User.updateOne({ _id: userId }, { $set: userData }, { runValidators: true });
+};
+
+exports.deleteUser = userId => User.findByIdAndDelete(userId);

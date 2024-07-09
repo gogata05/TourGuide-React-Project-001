@@ -1,5 +1,5 @@
-const hostname = "https://tourguide-react-project-001.onrender.com";
-// const hostname = "http://localhost:3000";
+// const hostname = "https://tourguide-react-project-001.onrender.com";
+const hostname = 'http://localhost:3000';
 
 async function request(url, option) {
   // try {
@@ -13,10 +13,7 @@ async function request(url, option) {
 
   if (response.status === 204) {
     return response;
-  } else if (
-    response.headers.has("content-type") &&
-    response.headers.get("content-type").includes("application/json")
-  ) {
+  } else if (response.headers.has('content-type') && response.headers.get('content-type').includes('application/json')) {
     return response.json();
   } else {
     return response.text();
@@ -28,10 +25,10 @@ async function request(url, option) {
   // }
 }
 
-function createOptions(method = "GET", data) {
+function createOptions(method = 'GET', data) {
   const option = {
     method,
-    headers: {},
+    headers: {}
   };
 
   // const userData = JSON.parse(localStorage.getItem('userData'));
@@ -42,7 +39,7 @@ function createOptions(method = "GET", data) {
   //     }
 
   if (data !== undefined) {
-    option.headers["Content-Type"] = "Application/json";
+    option.headers['Content-Type'] = 'Application/json';
     option.body = JSON.stringify(data);
   }
   return option;
@@ -51,11 +48,11 @@ export async function get(url) {
   return request(url, createOptions());
 }
 export async function post(url, data) {
-  return request(url, createOptions("post", data));
+  return request(url, createOptions('post', data));
 }
 export async function put(url, data) {
-  return request(url, createOptions("put", data));
+  return request(url, createOptions('put', data));
 }
 export async function del(url) {
-  return request(url, createOptions("delete"));
+  return request(url, createOptions('delete'));
 }
