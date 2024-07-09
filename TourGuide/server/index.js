@@ -12,6 +12,10 @@ const { getErrorMessage } = require("./utils/errorHelper");
 
 const app = express();
 
+if (process.env.NODE_ENV === "production") {
+  console.log("Running in production mode");
+}
+
 expressConfig(app);
 // app.use(cors({ origin: "*", credentials: true }));
 app.use(
