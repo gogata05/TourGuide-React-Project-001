@@ -14,7 +14,8 @@ const app = express();
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
 }
-
+console.log(`Environment PORT: ${process.env.PORT}`);
+console.log(`Configured PORT: ${PORT}`);
 expressConfig(app);
 app.use(cors({ origin: '*', credentials: true }));
 // app.use(
