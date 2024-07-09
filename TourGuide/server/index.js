@@ -16,7 +16,7 @@ expressConfig(app);
 // app.use(cors({ origin: "*", credentials: true }));
 app.use(
   cors({
-    origin: "https://tour-guide-react-project-001-ama7.vercel.app/",
+    origin: "https://tour-guide-react-project-001-ama7.vercel.app",
     credentials: true,
   })
 );
@@ -27,4 +27,6 @@ app.use(getErrorMessage);
 
 initDB();
 
-app.listen(PORT, () => console.log(`Server is listening at port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Server is listening at port ${PORT}`)
+);
