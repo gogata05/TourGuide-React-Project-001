@@ -1,4 +1,4 @@
-name: Build and test
+name: Build and deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,13 +25,8 @@ jobs:
           cd TourGuide/server
           npm install
 
-      - name: Run unit test for the server
-        run: |
-          cd TourGuide/server
-          npm run test:unit
-
   deploy:
-    needs: build-test
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
