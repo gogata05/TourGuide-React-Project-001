@@ -22,12 +22,12 @@ jobs:
 
       - name: Install server dependencies
         run: |
-          cd server
+          cd TourGuide/server
           npm install
 
       - name: Run unit test for the server
         run: |
-          cd server
+          cd TourGuide/server
           npm run test:unit
 
   deploy:
@@ -46,7 +46,7 @@ jobs:
 
       - name: Install server dependencies
         run: |
-          cd server
+          cd TourGuide/server
           npm install
 
       - name: Deploy to production
