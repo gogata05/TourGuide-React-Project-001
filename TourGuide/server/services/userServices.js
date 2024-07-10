@@ -1,26 +1,25 @@
-const User = require('../models/User');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { SECRET } = require('../config/env');
+const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { SECRET, SALT_ROUNDS } = require("../config/env");
 
 exports.register = async (firstName, lastName, username, email, profilePicture, phone, password) => {
   const existingUser = await User.findOne({ $or: [{ username }, { email }] });
   if (existingUser) {
     if (existingUser.username === username) {
       throw {
-        message: 'Username is already taken!'
+        message: "Username is already taken!"
       };
     }
-
     if (existingUser.email === email) {
       throw {
-        message: 'Email is already taken!'
+        message: "Email is already taken!"
       };
     }
   }
 
-  const saltRounds = 10;
-  const salt = await bcrypt.genSalt(saltRounds);
+  // Използване на SALT_ROUNDS от конфигурацията
+  const salt = await bcrypt.genSalt(Number(SALT_ROUNDS));
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const userData = {
@@ -40,23 +39,20 @@ exports.register = async (firstName, lastName, username, email, profilePicture, 
 exports.login = async (email, password) => {
   try {
     const user = await User.findOne({ email });
-
     if (!user) {
       throw {
-        message: 'Invalid email or password'
+        message: "Invalid email or password"
       };
     }
-
     const isValid = await bcrypt.compare(password, user.password);
-
     if (!isValid) {
       throw {
-        message: 'Invalid email or password'
+        message: "Invalid email or password"
       };
     }
     return user;
   } catch (error) {
-    console.error('Error during login:', error);
+    console.error("Error during login:", error);
     throw error;
   }
 };
@@ -71,7 +67,7 @@ exports.createToken = user => {
     profilePicture: user.profilePicture,
     phone: user.phone
   };
-  const options = { expiresIn: '1d' };
+  const options = { expiresIn: "1d" };
 
   return new Promise((resolve, reject) => {
     jwt.sign(payload, SECRET, options, (err, decodedToken) => {
