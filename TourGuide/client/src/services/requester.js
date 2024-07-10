@@ -29,13 +29,6 @@ function createOptions(method = "GET", data) {
     headers: {}
   };
 
-  // const userData = JSON.parse(localStorage.getItem('userData'));
-  // const token = userData.authToken;
-
-  //     if(token){
-  //         option.headers['Authorization'] = `Bearer ${token}`
-  //     }
-
   if (data !== undefined) {
     option.headers["Content-Type"] = "Application/json";
     option.body = JSON.stringify(data);

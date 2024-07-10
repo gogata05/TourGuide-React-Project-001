@@ -18,7 +18,6 @@ exports.register = async (firstName, lastName, username, email, profilePicture, 
     }
   }
 
-  // Използване на SALT_ROUNDS от конфигурацията
   const salt = await bcrypt.genSalt(Number(SALT_ROUNDS));
   const hashedPassword = await bcrypt.hash(password, salt);
 

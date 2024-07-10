@@ -54,7 +54,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Използване на SALT_ROUNDS от конфигурацията
 userSchema.pre("save", async function (next) {
   if (this.isModified("password") || this.isNew) {
     try {
